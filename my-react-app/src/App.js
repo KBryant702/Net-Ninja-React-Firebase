@@ -4,11 +4,14 @@ import './App.css';
 
 
 function App() {
+const [showEvents, setShowEvents] = useState(true)
  const [events, setEvents] = useState([
   {title: "Mario's Birthday Bash", id: 1},
   {title: "Bowser's Live Stream", id:2},
   {title: "Race on Moo Moo Farm", id: 3}
  ])
+
+ console.log(showEvents)
 
  const handleClick = (id) => {
   setEvents(prevEvents => {
@@ -18,7 +21,18 @@ function App() {
 
 return (
   <div className="App">
-    {events.map((event, index) => (
+    {showEvents && (
+      <div>
+        <button onClick={()=> setShowEvents(false)}>Hide Events</button>
+      </div>
+    )}
+   
+      {!showEvents && (
+         <div>
+      <button onClick={()=> setShowEvents(true)}>Show Events</button>
+    </div>
+      )}
+    {showEvents && events.map((event, index) => (
       <div key={event.id}>
         <h2>{index} - {event.title}</h2>
         <button onClick={() => handleClick(event.id)}>delete event</button>

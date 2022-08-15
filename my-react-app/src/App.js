@@ -1,6 +1,6 @@
-import {useState} from 'react'
-
 import './App.css';
+import {useState} from 'react'
+import Title from './components/Title'
 
 
 function App() {
@@ -21,6 +21,7 @@ const [showEvents, setShowEvents] = useState(true)
 
 return (
   <div className="App">
+    < Title />
     {showEvents && (
       <div>
         <button onClick={()=> setShowEvents(false)}>Hide Events</button>
@@ -35,7 +36,7 @@ return (
     {showEvents && events.map((event, index) => (
       <div key={event.id}>
         <h2>{index} - {event.title}</h2>
-        <button onClick={() => handleClick(event.id)}>delete event</button>
+        <button onClick={() => handleClick(event.id)}>Delete Event</button>
       </div>
     ))}
   </div>

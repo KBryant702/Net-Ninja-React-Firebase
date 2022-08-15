@@ -18,10 +18,11 @@ const [showEvents, setShowEvents] = useState(true)
     return prevEvents.filter(event => id !== event.id)
   })
 }
+const subtitle ="All the latest events in Marioland"
 
 return (
   <div className="App">
-    < Title />
+    < Title title="Events in Your Area" subtitle={subtitle}/>
     {showEvents && (
       <div>
         <button onClick={()=> setShowEvents(false)}>Hide Events</button>
